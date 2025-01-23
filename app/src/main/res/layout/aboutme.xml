@@ -2,10 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:scrollbars="vertical"
+    tools:context=".AboutMe">
+    >
 
-    <!-- Section 1: Name Input -->
     <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
@@ -20,9 +23,9 @@
         android:hint="Your Name"
         android:inputType="textPersonName"
         android:padding="10dp"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
 
-    <!-- Section 2: Upload Image -->
     <TextView
         android:id="@+id/tvUploadImage"
         android:layout_width="wrap_content"
@@ -36,7 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose Image"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center" />
 
     <ImageView
         android:id="@+id/ivProfileImage"
@@ -47,7 +51,6 @@
         android:visibility="gone"
         android:contentDescription="Profile Image" />
 
-    <!-- Section 3: About You -->
     <TextView
         android:id="@+id/tvAbout"
         android:layout_width="wrap_content"
@@ -64,14 +67,15 @@
         android:inputType="textMultiLine"
         android:gravity="top"
         android:padding="10dp"
-        android:textSize="16sp" />
-
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp" />
 
 </LinearLayout>
+

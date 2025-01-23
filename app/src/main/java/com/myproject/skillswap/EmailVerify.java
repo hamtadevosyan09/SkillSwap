@@ -1,9 +1,7 @@
 package com.myproject.skillswap;
 
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.widget.Toast;
 
@@ -15,43 +13,75 @@ import com.google.firebase.auth.FirebaseUser;
 public class EmailVerify extends AppCompatActivity {
 
     private FirebaseAuth auth;
-//BLACKED
+    private FirebaseUser user;
+    private Handler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_verify);
 
         auth = FirebaseAuth.getInstance();
-        FirebaseUser User = auth.getCurrentUser();
-        toastEmailOpen();
+        user = auth.getCurrentUser();
+
+        if (user != null) {
+            toastEmailOpen();
+            sendVerificationEmailIfNeeded();
+            checkEmailVerification();
+        } else {
+            Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 
     private void toastEmailOpen() {
         Toast.makeText(EmailVerify.this, R.string.if_open_email, Toast.LENGTH_SHORT).show();
-        Handler handler = new Handler();
-        handler.postDelayed(() -> {
-        }, 2000);
-        new CountDownTimer(Integer.MAX_VALUE, 3000) {
-            public void onTick(long millisUntilFinished) {
-                Intent intent = getIntent();
-                String password = "";
-                if(intent!=null){
-                    password = intent.getStringExtra("Password");
-                }
-                auth.signInWithEmailAndPassword(auth.getCurrentUser().getEmail(), password).addOnCompleteListener(task -> {
-                    if (auth.getCurrentUser().isEmailVerified()) {
-                        Toast.makeText(EmailVerify.this, "Is verified", Toast.LENGTH_SHORT).show();
-                        cancel();
-                        startActivity(new Intent(EmailVerify.this, MainActivity.class));
+    }
+
+    private void sendVerificationEmailIfNeeded() {
+        if (user != null && !user.isEmailVerified()) {
+            user.sendEmailVerification()
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(EmailVerify.this, "Verification email sent.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(EmailVerify.this, "Failed to send verification email.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+    }
+
+    private void checkEmailVerification() {
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                FirebaseUser currentUser = auth.getCurrentUser();
+                if (currentUser != null) {
+                    if (currentUser.isEmailVerified()) {
+                        Toast.makeText(EmailVerify.this, "Email is verified", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(EmailVerify.this, LoginActivity.class));
                         finish();
+                    } else {
+                        Toast.makeText(EmailVerify.this, "Email is not verified yet. Please check your inbox.", Toast.LENGTH_SHORT).show();
+                        // Optional: Repeat the check after a few seconds if necessary
+                        checkEmailVerification();
                     }
-
-                });
-
+                } else {
+                    Toast.makeText(EmailVerify.this, "User is not logged in", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             }
-            public void onFinish() {
-            }
-        }.start();
+        }, 5000); // 5-second delay before checking verification
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Ensure handler doesn't leak memory
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+        }
     }
 }
+
