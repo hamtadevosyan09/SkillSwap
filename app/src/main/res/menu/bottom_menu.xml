@@ -18,13 +18,13 @@
 
 
     <item
-        android:id="@+id/profile"
-        android:icon="@drawable/person"
-        android:title="Profile" />
+        android:id="@+id/learn"
+        android:icon="@drawable/book"
+        android:title="Learn" />
     <item
-        android:id="@+id/message"
+        android:id="@+id/ai"
         android:icon="@drawable/email_icon"
-        android:title="Message" />
+        android:title="AI" />
 
 
 </menu>

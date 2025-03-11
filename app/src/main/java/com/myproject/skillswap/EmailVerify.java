@@ -60,11 +60,10 @@ public class EmailVerify extends AppCompatActivity {
                 if (currentUser != null) {
                     if (currentUser.isEmailVerified()) {
                         Toast.makeText(EmailVerify.this, "Email is verified", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(EmailVerify.this, LoginActivity.class));
+                        startActivity(new Intent(EmailVerify.this, MainActivity.class));
                         finish();
                     } else {
                         Toast.makeText(EmailVerify.this, "Email is not verified yet. Please check your inbox.", Toast.LENGTH_SHORT).show();
-                        // Optional: Repeat the check after a few seconds if necessary
                         checkEmailVerification();
                     }
                 } else {
@@ -72,13 +71,12 @@ public class EmailVerify extends AppCompatActivity {
                     finish();
                 }
             }
-        }, 5000); // 5-second delay before checking verification
+        }, 5000);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Ensure handler doesn't leak memory
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
