@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FAQActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Frequently Asked Questions"
+            android:textSize="24sp"
+            android:layout_marginStart="50dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="16dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1) What is this app about?"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@color/grey"
+        android:layout_height="wrap_content"
+        android:text="This app is designed to help users learn and improve their math skills. You can ask questions, get explanations, and interact with an AI-powered assistant to assist you with solving math problems."
+        android:padding="8dp"/>
+
+    <TextView
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2) How does the AI math assistant work?"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@color/grey"
+        android:layout_height="wrap_content"
+        android:text="The AI assistant is trained to understand math queries and provide step-by-step explanations for various math problems. You can ask it questions, and it will assist you by explaining the solution process or solving math problems."
+        android:padding="8dp"/>
+
+    <TextView
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Can I ask the AI math assistant any question?"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@color/grey"
+        android:layout_height="wrap_content"
+        android:text="Yes, you can ask any math-related question. However, please note that the AI may not be able to answer very complex, unsolved, or non-math-related questions. We recommend asking clear and specific math-related queries for the best assistance."
+        android:padding="8dp"/>
+
+    <TextView
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Is my data secure while using the app?"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@color/grey"
+        android:layout_height="wrap_content"
+        android:text="Yes, we take your privacy and data security very seriously. All personal data is encrypted and used only to improve your experience with the app. We do not share or sell your personal data to third parties."
+        android:padding="8dp"/>
+
+    <TextView
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="How can I contact support if I need help?"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@color/grey"
+        android:layout_height="wrap_content"
+        android:text="If you need assistance or have any questions, you can contact our support team by emailing us at tadevosyanhamlet09@gmail.com . We’ll be happy to help!"
+        android:padding="8dp"/>
+
+</LinearLayout>

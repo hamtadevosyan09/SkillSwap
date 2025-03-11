@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:gravity="center"
+        android:text="Learn Math"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="70sp"/>
+
+    <TextView
+        android:id="@+id/geometrySection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Geometry"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:padding="14dp"
+        android:layout_marginTop="-70dp"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <TextView
+        android:id="@+id/numberTheorySection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Number Theory"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:padding="14dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <TextView
+        android:id="@+id/algebraSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Algebra"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:padding="14dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <TextView
+        android:id="@+id/combinatoricsSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Combinatorics"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:padding="14dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <TextView
+        android:id="@+id/websitesSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="( Websites and Sources )"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:padding="14dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:focusable="true"/>
+
+</LinearLayout>
