@@ -16,4 +16,10 @@
     <color name="famous_blue">#0070FF</color>
     <color name="orange">#FF9800</color>
     <color name="light_gray">#DDDDDD</color>
+    <color name="primary">#4CAF50</color>
+    <color name="gray">#757575</color>
+    <color name="dark_blue">#003366</color>
+    <color name="gray_dark">#505050</color>
+    <color name="primary_blue">#4A90E2</color>
+    <color name="primary_green">#34B47E</color>
 </resources>

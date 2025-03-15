@@ -3,26 +3,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@android:color/white">
 
-    <EditText
-        android:id="@+id/inputEditText"
+    <!-- Chat History Section -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Chat messages will be dynamically added here -->
+            <TextView
+                android:id="@+id/assistantMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hello! Ask me a math question."
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:background="@android:color/white"
+                android:layout_marginBottom="8dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Input Section -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter math expression"
-        android:inputType="text" />
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
 
-    <Button
-        android:id="@+id/calculateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calculate" />
+        <EditText
+            android:id="@+id/userInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Ask a math question..."
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:background="@drawable/border"/>
 
-    <TextView
-        android:id="@+id/resultTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="18sp" />
+        <ImageView
+            android:id="@+id/sendButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="8dp"
+            android:contentDescription="Send Button"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
 
 </LinearLayout>

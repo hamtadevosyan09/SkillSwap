@@ -17,7 +17,7 @@ public class Post {
         this.description = description;
         this.userId = userId;
         this.creatorUserId = creatorUserId;
-        this.category = category;  // Initialize category properly
+        this.category = category;
     }
 
     public String getPostId() {

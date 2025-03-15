@@ -139,7 +139,7 @@ public class CreatePostFragment extends Fragment {
 
         String creatorUserId = currentUser.getUid();
         String postId = firestore.collection("posts").document().getId();
-        Post post = new Post(title, description, userId, creatorUserId, selectedCategory);  // Passing category here
+        Post post = new Post(title, description, userId, creatorUserId, selectedCategory);
         post.setPostId(postId);
         post.setDifficultyLevel(selectedDifficulty);
 

@@ -45,8 +45,12 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
-    implementation("net.objecthunter:exp4j:0.4.8")
+    implementation(libs.swiperefreshlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation("com.faendir.rhino:rhino-android:1.6.0")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation("com.google.firebase:firebase-storage:19.2.2")
 }
+

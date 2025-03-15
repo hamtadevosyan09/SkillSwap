@@ -7,6 +7,14 @@
     android:padding="16dp"
     android:background="@android:color/white">
 
+    <ImageView
+        android:id="@+id/backlearn"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/back" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
