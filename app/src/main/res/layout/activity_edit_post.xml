@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="16dp"
+tools:context=".EditPostActivity">
+
+<ImageView
+    android:id="@+id/goback234"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="10dp"
+    app:srcCompat="@drawable/back" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Edit Title and Description then press Save Changes to save changes."
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="20dp" />
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_marginTop="10dp"
+    android:background="@color/light_gray" />
+
+<EditText
+    android:id="@+id/editTextTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:hint="Title"
+    android:padding="15dp"
+    android:textSize="16sp"
+    android:background="@drawable/rounded_edittext"
+    android:focusable="true"
+    android:focusableInTouchMode="true" />
+
+<!-- Description EditText -->
+<EditText
+    android:id="@+id/editTextDescription"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:hint="Description"
+    android:padding="15dp"
+    android:textSize="16sp"
+    android:background="@drawable/rounded_edittext"
+    android:focusable="true"
+    android:focusableInTouchMode="true" />
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_marginTop="10dp"
+    android:background="@color/light_gray" />
+
+<Button
+    android:id="@+id/buttonSave"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="40dp"
+    android:layout_marginBottom="20dp"
+    android:backgroundTint="@color/black"
+    android:text="Save Changes"
+    android:textColor="@android:color/white"
+    android:textSize="16sp"
+    android:padding="15dp"
+    android:drawablePadding="8dp"/>
+
+</LinearLayout>

@@ -1,0 +1,6 @@
+<!-- res/drawable/difficulty_bg.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/blue" />
+    <corners android:radius="4dp" />
+</shape>
