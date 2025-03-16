@@ -46,6 +46,8 @@ dependencies {
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
     implementation(libs.swiperefreshlayout)
+    implementation("com.google.firebase:firebase-firestore:24.1.2")
+    implementation("com.google.firebase:firebase-auth:21.0.1")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -53,4 +55,3 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation("com.google.firebase:firebase-storage:19.2.2")
 }
-

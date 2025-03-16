@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
@@ -53,6 +55,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
         private TextView titleTextView;
         private TextView descriptionTextView;
+        private TextView usernameTextView;
         private ImageView threeDots;
         private TextView replyText;
         private ImageView replyPic;
@@ -63,12 +66,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             super(itemView);
             titleTextView = itemView.findViewById(R.id.titleTextView);
             descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
+            usernameTextView = itemView.findViewById(R.id.usernameTextView);
             threeDots = itemView.findViewById(R.id.three_dots);
             replyText = itemView.findViewById(R.id.reply_text);
             replyPic = itemView.findViewById(R.id.reply_pic);
             difficultyTextView = itemView.findViewById(R.id.difficultyTextView);
-            categoryTextView = itemView.findViewById(R.id.categoryTextView); // Initialize categoryTextView here
-
+            categoryTextView = itemView.findViewById(R.id.categoryTextView);
 
             threeDots.setOnClickListener(v -> {
                 if (optionsClickListener != null) {
@@ -102,7 +105,25 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             difficultyTextView.setText(post.getDifficultyLevel());
             setDifficultyColor(post.getDifficultyLevel());
             setCategoryColor(post.getCategory());
+
+            getUsernameFromFirestore(post.getCreatorUserId(), usernameTextView);
+
             threeDots.setVisibility(View.VISIBLE);
+        }
+
+        private void getUsernameFromFirestore(String creatorUserId, final TextView usernameTextView) {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("users").document(creatorUserId)
+                    .get()
+                    .addOnSuccessListener(documentSnapshot -> {
+                        if (documentSnapshot.exists()) {
+                            String username = documentSnapshot.getString("username");
+                            usernameTextView.setText(username != null ? username : "Unknown User");
+                        } else {
+                            usernameTextView.setText("Unknown User");
+                        }
+                    })
+                    .addOnFailureListener(e -> usernameTextView.setText("Error fetching username"));
         }
 
         private void setDifficultyColor(String difficultyLevel) {
@@ -118,6 +139,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             }
             difficultyTextView.setBackgroundResource(color);
         }
+
         private void setCategoryColor(String category) {
             int color;
             switch (category) {

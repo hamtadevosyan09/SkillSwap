@@ -22,4 +22,5 @@
     <color name="gray_dark">#505050</color>
     <color name="primary_blue">#4A90E2</color>
     <color name="primary_green">#34B47E</color>
+    <color name="transparent">#00000000</color>
 </resources>

@@ -65,10 +65,11 @@
             android:name=".SignupActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
-        <!-- Add the CommentsActivity here -->
         <activity
             android:name=".CommentsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditPostActivity"
             android:exported="true" />
 
     </application>

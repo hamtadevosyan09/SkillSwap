@@ -18,7 +18,6 @@
         android:icon="@drawable/about"
         android:title="Tags"/>
 
-    <!-- Adding a separator item (just a placeholder with no title and no icon) -->
     <item
         android:id="@+id/empty_space"
         android:title=""
@@ -36,4 +35,3 @@
         android:title="Users"/>
 
 </menu>
-

@@ -89,11 +89,11 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
+            app:headerLayout="@layout/nav_header"
             app:itemIconTint="@color/lavender"
             app:itemTextColor="@color/lavender"
             app:menu="@menu/top_menu" />
 
     </androidx.drawerlayout.widget.DrawerLayout>
 </RelativeLayout>
-
 
