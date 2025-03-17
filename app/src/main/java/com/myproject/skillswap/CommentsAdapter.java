@@ -43,25 +43,17 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
 
     public class CommentViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView usernameTextView; // Added for username
         private TextView commentTextView;
         private ImageView threeDots;
 
         public CommentViewHolder(@NonNull View itemView) {
             super(itemView);
-            usernameTextView = itemView.findViewById(R.id.usernameTextView); // Bind username TextView
             commentTextView = itemView.findViewById(R.id.commentTextView);
             threeDots = itemView.findViewById(R.id.threedots);
         }
 
         public void bind(Comment comment) {
             commentTextView.setText(comment.getText());
-
-            // Assuming you have a way to get the username
-            // Example: Using the userId or a method in the Comment class to fetch the actual username
-            String username = comment.getUserId(); // Or any method to fetch the actual username
-            usernameTextView.setText(username);  // Set the username
-
             threeDots.setOnClickListener(v -> {
                 if (commentActionListener != null && comment.getUserId() != null) {
                     String currentUserId = commentActionListener.getCurrentUserId();

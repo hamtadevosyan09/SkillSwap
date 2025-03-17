@@ -17,7 +17,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Chat messages will be dynamically added here -->
             <TextView
                 android:id="@+id/assistantMessage"
                 android:layout_width="match_parent"

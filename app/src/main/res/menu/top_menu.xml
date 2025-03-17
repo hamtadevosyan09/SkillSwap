@@ -14,11 +14,6 @@
         android:title="Settings"/>
 
     <item
-        android:id="@+id/tags"
-        android:icon="@drawable/about"
-        android:title="Tags"/>
-
-    <item
         android:id="@+id/empty_space"
         android:title=""
         android:enabled="false"

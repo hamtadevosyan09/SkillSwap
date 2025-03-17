@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Combinatorics"
+        android:text="Number Theory"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -72,16 +72,5 @@
         android:layout_marginBottom="20dp"
         android:clickable="true"
         android:focusable="true"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Files"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="15dp"
-        android:padding="10dp"
-        android:gravity="start"/>
 
 </LinearLayout>

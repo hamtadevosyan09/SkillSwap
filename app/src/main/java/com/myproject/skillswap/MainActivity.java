@@ -82,9 +82,6 @@ public class MainActivity extends AppCompatActivity {
                 if (item.getItemId() == R.id.home) {
                     replaceFragment(new HomeFragment());
                     return true;
-                } else if (item.getItemId() == R.id.tags) {
-                    replaceFragment(new TagsFragment());
-                    return true;
                 } else if (item.getItemId() == R.id.aboutus) {
                     replaceFragment(new AboutUsFragment());
                     return true;
