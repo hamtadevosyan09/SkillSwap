@@ -22,25 +22,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Geometry"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:padding="14dp"
+        android:padding="16dp"
         android:layout_marginTop="-70dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@color/teal_200"
-        android:layout_marginBottom="10dp"/>
+        android:background="@drawable/rounded_button_geometry"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/numberTheorySection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:text="Number Theory"
         android:textSize="20sp"
-        android:padding="14dp"
-        android:layout_marginBottom="10dp"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@color/green" />
+        android:background="@drawable/rounded_button_numbertheory" />
 
     <TextView
         android:id="@+id/algebraSection"
@@ -48,36 +50,37 @@
         android:layout_height="wrap_content"
         android:text="Algebra"
         android:textSize="20sp"
-        android:padding="14dp"
-        android:layout_marginBottom="10dp"
+        android:textColor="@color/black"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@color/famous_blue"/>
+        android:background="@drawable/rounded_button_algebra"/>
 
     <TextView
         android:id="@+id/combinatoricsSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Combinatorics"
-        android:textColor="@color/blue"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:padding="14dp"
-        android:layout_marginBottom="30dp"
+        android:padding="16dp"
+        android:layout_marginBottom="35dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@color/orange"/>
+        android:background="@drawable/rounded_button_combinatorics"/>
 
     <TextView
         android:id="@+id/websitesSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="( Websites and Sources )"
-        android:textColor="@color/blue"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:padding="14dp"
+        android:padding="16dp"
         android:layout_marginBottom="10dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@color/light_gray"/>
+        android:background="@drawable/rounded_button_websites"/>
 
 </LinearLayout>

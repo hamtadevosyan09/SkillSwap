@@ -27,7 +27,7 @@
         android:gravity="center"/>
 
     <TextView
-        android:id="@+id/book1_n"
+        android:id="@+id/web_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="• Art Of Problem Solving (USA)"
@@ -39,7 +39,7 @@
         android:focusable="true"/>
 
     <TextView
-        android:id="@+id/book2_n"
+        android:id="@+id/web_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="• Problems.ru (Russian)"
@@ -51,7 +51,7 @@
         android:focusable="true"/>
 
     <TextView
-        android:id="@+id/book3_n"
+        android:id="@+id/web_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="• Qarakusi.am (Armenian)"
