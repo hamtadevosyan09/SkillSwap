@@ -7,8 +7,8 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/search"
-        android:icon="@drawable/search"
+        android:id="@+id/problems"
+        android:icon="@drawable/problems"
         android:title="Search" />
 
     <item
@@ -23,7 +23,7 @@
         android:title="Learn" />
     <item
         android:id="@+id/ai"
-        android:icon="@drawable/email_icon"
+        android:icon="@drawable/ai_logo"
         android:title="AI" />
 
 

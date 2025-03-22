@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 if (item.getItemId() == R.id.home) {
                     replaceFragment(new HomeFragment());
                     return true;
-                } else if (item.getItemId() == R.id.search) {
+                } else if (item.getItemId() == R.id.problems) {
                     replaceFragment(new SearchFragment());
                     return true;
                 } else if (item.getItemId() == R.id.learn) {
