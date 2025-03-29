@@ -54,4 +54,5 @@ dependencies {
     implementation("com.faendir.rhino:rhino-android:1.6.0")
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation("com.google.firebase:firebase-storage:19.2.2")
+    implementation ("androidx.cardview:cardview:1.0.0")
 }

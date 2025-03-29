@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(new HomeFragment());
                     return true;
                 } else if (item.getItemId() == R.id.problems) {
-                    replaceFragment(new SearchFragment());
+                    replaceFragment(new Problems());
                     return true;
                 } else if (item.getItemId() == R.id.learn) {
                     replaceFragment(new LearnFragment());
