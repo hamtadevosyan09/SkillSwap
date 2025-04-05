@@ -4,20 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/math_bg"
     tools:context=".LoginActivity">
 
     <RelativeLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="800dp"
-            android:layout_height="300dp"
-            app:srcCompat="@drawable/background2" />
     </RelativeLayout>
 
     <LinearLayout
@@ -28,7 +21,13 @@
         android:orientation="vertical"
         android:padding="28dp">
 
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SolveStack"
+            android:textColor="@android:color/white"
+            android:textSize="45sp"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
@@ -138,11 +137,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Dont have an account? Sign up!"
+                android:text="Don't have an account? Sign up!"
                 android:textColor="@color/blue" />
-
-
-
 
         </LinearLayout>
 

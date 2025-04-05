@@ -6,7 +6,7 @@ android:id="@+id/main"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
-android:padding="16dp"
+android:padding="16dp" android:background="@color/light_gray"
 tools:context=".EditPostActivity">
 
 <ImageView
@@ -42,11 +42,10 @@ tools:context=".EditPostActivity">
     android:hint="Title"
     android:padding="15dp"
     android:textSize="16sp"
-    android:background="@drawable/rounded_edittext"
+    android:background="@drawable/border"
     android:focusable="true"
     android:focusableInTouchMode="true" />
 
-<!-- Description EditText -->
 <EditText
     android:id="@+id/editTextDescription"
     android:layout_width="match_parent"
@@ -55,7 +54,7 @@ tools:context=".EditPostActivity">
     android:hint="Description"
     android:padding="15dp"
     android:textSize="16sp"
-    android:background="@drawable/rounded_edittext"
+    android:background="@drawable/border"
     android:focusable="true"
     android:focusableInTouchMode="true" />
 

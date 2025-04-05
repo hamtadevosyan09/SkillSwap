@@ -7,25 +7,33 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/white"
+    android:background="@color/light_gray"
     tools:context=".Problems">
 
-    <!-- Header Text: "Daily Problems" -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Daily Problems"
+        android:text="Daily Problem"
         android:gravity="center"
         android:textSize="36sp"
         android:textStyle="bold"
         android:textColor="@color/black"/>
 
-    <!-- Problem Section -->
+    <TextView
+        android:id="@+id/problemsection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Problem:"
+        android:gravity="left"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
         app:contentPadding="16dp"
@@ -41,7 +49,7 @@
                 android:id="@+id/problemOfTheWeekTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Problem of the Week"
+                android:text="Daily problem will be added here"
                 android:gravity="center"
                 android:textSize="22sp"
                 android:textColor="@color/black"
@@ -51,11 +59,21 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Solution Section -->
+
+    <TextView
+        android:id="@+id/solutionsection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Solution:"
+        android:gravity="left"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
         app:contentPadding="16dp"
