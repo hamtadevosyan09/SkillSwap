@@ -23,7 +23,6 @@ public class Problems extends Fragment {
         View view = inflater.inflate(R.layout.fragment_problems, container, false);
         db = FirebaseFirestore.getInstance();
 
-        // Initialize TextViews for the problem and the solution
         problemOfTheWeekTextView = view.findViewById(R.id.problemOfTheWeekTextView);
         solutionOfTheWeekTextView = view.findViewById(R.id.solutionOfTheWeekTextView);
 

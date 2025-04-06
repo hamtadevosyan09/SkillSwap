@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/white">
+    android:background="@color/light_gray">
 
     <ImageView
         android:id="@+id/backlearn"
@@ -47,7 +47,8 @@
         android:padding="14dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        android:background="@drawable/border"/>
 
     <TextView
         android:id="@+id/book2_n"
@@ -59,7 +60,8 @@
         android:padding="14dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        android:background="@drawable/border"/>
 
     <TextView
         android:id="@+id/book3_n"
@@ -71,6 +73,7 @@
         android:padding="14dp"
         android:layout_marginBottom="20dp"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        android:background="@drawable/border"/>
 
 </LinearLayout>
