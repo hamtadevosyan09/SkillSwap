@@ -7,24 +7,24 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/problems"
-        android:icon="@drawable/problems"
-        android:title="Problem" />
+        android:id="@+id/search"
+        android:icon="@drawable/search"
+        android:title="Search" />
 
     <item
         android:id="@+id/fab"
         android:enabled="false"
         android:title="" />
 
+    <item
+        android:id="@+id/problems"
+        android:icon="@drawable/problems"
+        android:title="Problem" />
+
 
     <item
         android:id="@+id/learn"
         android:icon="@drawable/book"
         android:title="Learn" />
-    <item
-        android:id="@+id/ai"
-        android:icon="@drawable/ai_logo"
-        android:title="AI" />
-
 
 </menu>

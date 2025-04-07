@@ -18,11 +18,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CreatePostFragment extends Fragment {
     private EditText editTextTitle, editTextDescription;
-    private Button buttonPost, buttonBeginner, buttonAdvanced, buttonAmateur, buttonCategoryTech, buttonCategoryBusiness;
+    private Button buttonPost,  buttonCategoryTech, buttonCategoryBusiness;
     private FirebaseFirestore firestore;
     private FirebaseAuth firebaseAuth;
     private boolean isPosting = false;
-    private String selectedDifficulty = "";
     private String selectedCategory = "";
 
     private Button buttonCategoryGeo, buttonCategoryComb , buttonCategoryAlg, buttonCategoryNum;
