@@ -3,19 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@drawable/math_bg">
+    android:padding="24dp"
+    android:background="@color/light_gray"
+    android:gravity="center">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
         android:gravity="center"
-        android:text="Learn Math"
+        android:text="Math resources for our users"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
-        android:layout_marginTop="70sp"/>
+        android:layout_marginBottom="30dp"
+        android:fontFamily="sans-serif-medium" />
 
     <TextView
         android:id="@+id/geometrySection"
@@ -23,39 +24,51 @@
         android:layout_height="wrap_content"
         android:text="Geometry"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:padding="16dp"
-        android:layout_marginTop="-70dp"
+        android:layout_marginBottom="18dp"
         android:clickable="true"
         android:focusable="true"
         android:background="@drawable/rounded_button_geometry"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        android:elevation="4dp"
+        android:shadowColor="@android:color/darker_gray" />
 
     <TextView
         android:id="@+id/numberTheorySection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:text="Number Theory"
-        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
         android:padding="16dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="18dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@drawable/rounded_button_numbertheory" />
+        android:background="@drawable/rounded_button_numbertheory"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="4dp"
+        android:shadowColor="@android:color/darker_gray" />
 
     <TextView
         android:id="@+id/algebraSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Algebra"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textColor="@color/black"
         android:padding="16dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="18dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@drawable/rounded_button_algebra"/>
+        android:background="@drawable/rounded_button_algebra"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="4dp"
+        android:shadowColor="@android:color/darker_gray" />
 
     <TextView
         android:id="@+id/combinatoricsSection"
@@ -63,12 +76,16 @@
         android:layout_height="wrap_content"
         android:text="Combinatorics"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:padding="16dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="18dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@drawable/rounded_button_combinatorics"/>
+        android:background="@drawable/rounded_button_combinatorics"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="4dp"
+        android:shadowColor="@android:color/darker_gray" />
 
     <TextView
         android:id="@+id/websitesSection"
@@ -76,11 +93,15 @@
         android:layout_height="wrap_content"
         android:text="( Websites and Sources )"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:padding="16dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@drawable/rounded_button_websites"/>
+        android:background="@drawable/rounded_button_websites"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="4dp"
+        android:shadowColor="@android:color/darker_gray" />
 
 </LinearLayout>

@@ -6,7 +6,6 @@ public class Post {
     private String description;
     private String userId;
     private String creatorUserId;
-    private String difficultyLevel;
     private String category;
 
     public Post() {
@@ -58,14 +57,6 @@ public class Post {
 
     public void setCreatorUserId(String creatorUserId) {
         this.creatorUserId = creatorUserId;
-    }
-
-    public String getDifficultyLevel() {
-        return difficultyLevel;
-    }
-
-    public void setDifficultyLevel(String difficultyLevel) {
-        this.difficultyLevel = difficultyLevel;
     }
 
     public String getCategory() {

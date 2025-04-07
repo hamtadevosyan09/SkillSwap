@@ -34,9 +34,6 @@ public class CreatePostFragment extends Fragment {
         editTextTitle = view.findViewById(R.id.editTextTitle);
         editTextDescription = view.findViewById(R.id.editTextDescription);
         buttonPost = view.findViewById(R.id.button_post);
-        buttonBeginner = view.findViewById(R.id.easy);
-        buttonAdvanced = view.findViewById(R.id.medium);
-        buttonAmateur = view.findViewById(R.id.hard);
         buttonCategoryGeo= view.findViewById(R.id.geometry);
         buttonCategoryAlg = view.findViewById(R.id.algebra);
         buttonCategoryNum= view.findViewById(R.id.number);
@@ -53,27 +50,6 @@ public class CreatePostFragment extends Fragment {
                 }
                 isPosting = true;
                 postQuestion();
-            }
-        });
-
-        buttonBeginner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectedDifficulty = "Easy";
-            }
-        });
-
-        buttonAdvanced.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectedDifficulty = "Medium";
-            }
-        });
-
-        buttonAmateur.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectedDifficulty = "Hard";
             }
         });
 
@@ -126,11 +102,6 @@ public class CreatePostFragment extends Fragment {
             isPosting = false;
             return;
         }
-        if (selectedDifficulty.isEmpty()) {
-            Toast.makeText(getContext(), "Please select a difficulty level", Toast.LENGTH_SHORT).show();
-            isPosting = false;
-            return;
-        }
         if (selectedCategory.isEmpty()) {
             Toast.makeText(getContext(), "Please select a category", Toast.LENGTH_SHORT).show();
             isPosting = false;
@@ -141,8 +112,6 @@ public class CreatePostFragment extends Fragment {
         String postId = firestore.collection("posts").document().getId();
         Post post = new Post(title, description, userId, creatorUserId, selectedCategory);
         post.setPostId(postId);
-        post.setDifficultyLevel(selectedDifficulty);
-
         firestore.collection("posts").document(postId).set(post)
                 .addOnSuccessListener(documentReference -> {
                     editTextTitle.setText("");

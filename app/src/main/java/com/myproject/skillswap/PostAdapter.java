@@ -70,7 +70,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             threeDots = itemView.findViewById(R.id.three_dots);
             replyText = itemView.findViewById(R.id.reply_text);
             replyPic = itemView.findViewById(R.id.reply_pic);
-            difficultyTextView = itemView.findViewById(R.id.difficultyTextView);
             categoryTextView = itemView.findViewById(R.id.categoryTextView);
 
             threeDots.setOnClickListener(v -> {
@@ -102,8 +101,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             titleTextView.setText(post.getTitle());
             descriptionTextView.setText(post.getDescription());
             categoryTextView.setText(post.getCategory());
-            difficultyTextView.setText(post.getDifficultyLevel());
-            setDifficultyColor(post.getDifficultyLevel());
             setCategoryColor(post.getCategory());
 
             getUsernameFromFirestore(post.getCreatorUserId(), usernameTextView);
@@ -124,20 +121,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                         }
                     })
                     .addOnFailureListener(e -> usernameTextView.setText("Error fetching username"));
-        }
-
-        private void setDifficultyColor(String difficultyLevel) {
-            int color;
-            if (difficultyLevel.equals("Easy")) {
-                color = R.color.blue;
-            } else if (difficultyLevel.equals("Medium")) {
-                color = R.color.yellow;
-            } else if (difficultyLevel.equals("Hard")) {
-                color = R.color.red;
-            } else {
-                color = R.color.blue;
-            }
-            difficultyTextView.setBackgroundResource(color);
         }
 
         private void setCategoryColor(String category) {
