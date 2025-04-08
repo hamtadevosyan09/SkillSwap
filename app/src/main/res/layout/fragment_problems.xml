@@ -69,7 +69,7 @@
         android:textSize="22sp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="30dp" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:text="Solution will be added by the end of the day"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textColor="@color/black"
                 android:textStyle="italic"
                 android:layout_marginTop="8dp" />

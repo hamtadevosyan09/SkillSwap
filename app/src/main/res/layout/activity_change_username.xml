@@ -1,84 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:background="@color/light_gray"
-    android:orientation="vertical"
+    android:background="@drawable/gradient_background"
     tools:context=".ChangeUsernameActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:elevation="20dp"
-        app:cardCornerRadius="30dp">
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="24dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/lavender_border"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="28dp">
 
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/change_username" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
                 android:text="Change Username"
                 android:textAlignment="center"
-                android:textColor="@color/grey"
-                android:textSize="36.5sp"
+                android:textColor="@color/text_primary"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
+            <View
+                android:layout_width="80dp"
+                android:layout_height="3dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/accent_color" />
+
+            <!-- Subtitle -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:text="Please enter your new username and press change to change"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="sans-serif"
+                android:text="Please enter your new username below"
                 android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp" />
 
-
-            <EditText
-                android:id="@+id/new_username"
+            <!-- Username input with improved styling -->
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/lavender_border"
-                android:drawableLeft="@drawable/person"
-                android:drawablePadding="8dp"
-                android:hint="New Username"
-                android:padding="8dp"
-                android:textColor="@color/black" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/accent_color"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/person"
+                app:startIconTint="@color/accent_color">
 
-            <Button
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="New Username"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_hint" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/change_username_really"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="30dp"
-                android:backgroundTint="@color/grey"
-                android:text="Change"
-                android:textSize="18sp" />
+                android:layout_height="56dp"
+                android:backgroundTint="@color/accent_color"
+                android:fontFamily="sans-serif-medium"
+                android:text="Update Username"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:cornerRadius="12dp"
+                app:elevation="6dp" />
 
             <TextView
                 android:id="@+id/gobackSettings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
+                android:background="?attr/selectableItemBackground"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/accent_color"
+                android:fontFamily="sans-serif-medium"
                 android:padding="8dp"
-                android:text="Go back to Settings"
-                android:textColor="@color/blue"
-                android:textSize="13.5sp" />
+                android:text="Back to Settings"
+                android:textColor="@color/accent_color"
+                android:textSize="14sp" />
         </LinearLayout>
-
-
     </androidx.cardview.widget.CardView>
-
-
-</LinearLayout>
+</RelativeLayout>

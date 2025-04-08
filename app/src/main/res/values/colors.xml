@@ -23,4 +23,10 @@
     <color name="primary_blue">#4A90E2</color>
     <color name="primary_green">#34B47E</color>
     <color name="transparent">#00000000</color>
+    <color name="accent_color">#5C6BC0</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="error_red">#F44336</color>
+    <color name="warning_yellow">#FFC107</color>
 </resources>
