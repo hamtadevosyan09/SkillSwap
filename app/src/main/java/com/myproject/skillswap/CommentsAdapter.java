@@ -82,7 +82,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
                 if (currentUserId.equals(comment.getUserId())) {
                     popupMenu.inflate(R.menu.post_options_menu);
                 }
-                if (currentUserId.equals(postCreatorId)) {
+               else if (currentUserId.equals(postCreatorId)) {
                     popupMenu.inflate(R.menu.post_options_menu_one);
                 } else {
                     popupMenu.inflate(R.menu.menu_post_options2);
