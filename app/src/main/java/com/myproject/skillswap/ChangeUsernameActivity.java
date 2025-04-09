@@ -1,6 +1,5 @@
 package com.myproject.skillswap;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,7 +17,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.myproject.skillswap.SettingsFragment;
 
 public class ChangeUsernameActivity extends AppCompatActivity {
 
@@ -80,9 +78,12 @@ public class ChangeUsernameActivity extends AppCompatActivity {
         }
     }
 
-    private void goBackToSettings() {
-        Intent intent = new Intent(this, SettingsFragment.class);
-        startActivity(intent);
+    public void goBackToSettings() {
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

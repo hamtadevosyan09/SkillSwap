@@ -1,11 +1,11 @@
 package com.myproject.skillswap;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,8 +39,15 @@ public class PasswordResetActivity extends AppCompatActivity {
             }
         });
 
-        TextView goBackToLoginTextView = findViewById(R.id.gobacklogin);
+        ImageView backButton = findViewById(R.id.gobackpass);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goBackToSettings();
+            }
+        });
 
+        TextView goBackToLoginTextView = findViewById(R.id.gobacklogin);
         goBackToLoginTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +70,6 @@ public class PasswordResetActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(PasswordResetActivity.this, "Password reset email sent", Toast.LENGTH_SHORT).show();
-
                         } else {
                             Toast.makeText(PasswordResetActivity.this, "Failed to send password reset email", Toast.LENGTH_SHORT).show();
                         }
@@ -74,6 +80,15 @@ public class PasswordResetActivity extends AppCompatActivity {
     public void goBackToLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+    }
 
+    public void goBackToSettings() {
+        SettingsFragment settingsFragment = new SettingsFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, settingsFragment)
+                .addToBackStack(null)
+                .commit();
+
+        finish();
     }
 }

@@ -46,7 +46,6 @@
                 android:layout_marginBottom="16dp"
                 android:background="@color/accent_color" />
 
-            <!-- Subtitle -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,7 +56,6 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="16sp" />
 
-            <!-- Username input with improved styling -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
