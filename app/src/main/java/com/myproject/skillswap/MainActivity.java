@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.learn) {
                     replaceFragment(new LearnFragment());
                     return true;
-                } else if (item.getItemId() == R.id.ai) {
-                    replaceFragment(new MathAssistantFragment());
+                } else if (item.getItemId() == R.id.profile) {
+                    replaceFragment(new ProfileFragment());
                     return true;
                 } else if (item.getItemId() == R.id.fab) {
                     replaceFragment(new CreatePostFragment());
