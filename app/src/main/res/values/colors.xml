@@ -29,4 +29,27 @@
     <color name="text_hint">#BDBDBD</color>
     <color name="error_red">#F44336</color>
     <color name="warning_yellow">#FFC107</color>
-</resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="background">#121212</color>
+    <color name="display_background">#1F1F1F</color>
+    <color name="keypad_background">#1F1F1F</color>
+    <color name="input_text">#B3FFFFFF</color>
+    <color name="result_text">#FFFFFF</color>
+    <color name="memory_color">#03DAC5</color>
+    <color name="button_number">#2D2D2D</color>
+    <color name="button_number_text">#FFFFFF</color>
+    <color name="button_operator">#BB86FC</color>
+    <color name="button_operator_text">#000000</color>
+    <color name="button_function">#3D3D3D</color>
+    <color name="button_function_text">#B3FFFFFF</color>
+    <color name="button_memory">#3D3D3D</color>
+    <color name="button_memory_text">#03DAC5</color>
+    <color name="button_equals">#03DAC5</color>
+    <color name="button_equals_text">#000000</color>
+    <color name="button_clear">#CF6679</color>
+    <color name="button_clear_text">#000000</color>
+    <color name="button_symbol">#B3FFFFFF</color>
+    <color name="light_gray_blue">#EDF1F5</color>
+    </resources>
