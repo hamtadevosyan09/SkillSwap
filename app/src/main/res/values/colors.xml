@@ -52,4 +52,8 @@
     <color name="button_clear_text">#000000</color>
     <color name="button_symbol">#B3FFFFFF</color>
     <color name="light_gray_blue">#EDF1F5</color>
+    <color name="card_background">#F7F9FC</color>
+    <color name="username_color">#3A3A3A</color>
+    <color name="comment_text_color">#4A4A4A</color>
+    <color name="action_text_color">#5D8CAE</color>
     </resources>

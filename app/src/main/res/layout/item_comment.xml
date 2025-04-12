@@ -3,26 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp"
-    android:background="@color/light_gray_blue"
-    android:layout_marginBottom="8dp">
+    android:padding="16dp"
+    android:background="@color/white"
+    android:layout_marginBottom="12dp"
+    android:elevation="2dp">
 
-    <TextView
-        android:id="@+id/usernameTextView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Username"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        android:layout_marginBottom="4dp" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:background="@color/white"
-    android:layout_marginBottom="12dp">
+        <TextView
+            android:id="@+id/usernameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Username"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-medium" />
+
+        <ImageView
+            android:id="@+id/threedots"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/threedots"
+            android:contentDescription="More options"
+            android:padding="2dp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/commentTextView"
@@ -31,21 +41,16 @@
         android:maxLines="15"
         android:ellipsize="end"
         android:text="This is the comment"
-        android:textSize="14sp"
-        android:textColor="@android:color/black"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:textSize="15sp"
+        android:textColor="@color/comment_text_color"
+        android:lineSpacingExtra="4dp"
+        android:padding="8dp"/>
 
-    <ImageView
-        android:id="@+id/threedots"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/threedots"
-        android:contentDescription="More options"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="8dp" />
-
-</RelativeLayout>
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
 
     </LinearLayout>
+</LinearLayout>
