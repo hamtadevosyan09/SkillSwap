@@ -17,10 +17,7 @@
         android:id="@+id/aboutus"
         android:icon="@drawable/about"
         android:title="About Us"/>
-
     <item
-        android:id="@+id/users"
-        android:icon="@drawable/person"
-        android:title="Users"/>
-
+        android:id="@+id/space"
+        android:title=" "/>
 </menu>

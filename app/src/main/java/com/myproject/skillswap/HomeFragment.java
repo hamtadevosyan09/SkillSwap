@@ -3,6 +3,7 @@ package com.myproject.skillswap;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,14 +24,19 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.myproject.skillswap.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class HomeFragment extends Fragment implements PostAdapter.OnPostOptionsClickListener {
 
+    private FragmentHomeBinding binding;
+
     private RecyclerView recyclerView;
     private List<Post> postList;
+    private List<Post> allPosts = new ArrayList<>();
     private PostAdapter postAdapter;
     private FirebaseFirestore firestore;
     private String currentUserId;
@@ -38,9 +44,13 @@ public class HomeFragment extends Fragment implements PostAdapter.OnPostOptionsC
     private SwipeRefreshLayout swipeRefreshLayout;
     private ActivityResultLauncher<Intent> editPostLauncher;
 
+    private String selectedCategory = "All";
+    private String currentSearchQuery = "";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
         firestore = FirebaseFirestore.getInstance();
 
@@ -74,12 +84,12 @@ public class HomeFragment extends Fragment implements PostAdapter.OnPostOptionsC
                             String newDescription = data.getStringExtra("description");
 
                             if (postId != null && newTitle != null && newDescription != null) {
-                                for (int i = 0; i < postList.size(); i++) {
-                                    Post post = postList.get(i);
+                                for (int i = 0; i < allPosts.size(); i++) {
+                                    Post post = allPosts.get(i);
                                     if (post.getPostId().equals(postId)) {
                                         post.setTitle(newTitle);
                                         post.setDescription(newDescription);
-                                        postAdapter.notifyItemChanged(i);
+                                        filterPosts(currentSearchQuery);
                                         break;
                                     }
                                 }
@@ -88,6 +98,8 @@ public class HomeFragment extends Fragment implements PostAdapter.OnPostOptionsC
                     }
                 }
         );
+
+        setupCategoryRecyclerView();
 
         return view;
     }
@@ -106,9 +118,9 @@ public class HomeFragment extends Fragment implements PostAdapter.OnPostOptionsC
                             }
                         }
                     }
-                    postList.clear();
-                    postList.addAll(newPostList);
-                    postAdapter.notifyDataSetChanged();
+                    allPosts.clear();
+                    allPosts.addAll(newPostList);
+                    filterPosts(currentSearchQuery);
                     swipeRefreshLayout.setRefreshing(false);
                 } else {
                     Toast.makeText(requireContext(), "Failed to load posts: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -116,6 +128,45 @@ public class HomeFragment extends Fragment implements PostAdapter.OnPostOptionsC
                 }
             });
         }
+    }
+
+    private void setupCategoryRecyclerView() {
+        List<String> categories = Arrays.asList("All", "Algebra", "Number_Theory", "Geometry", "Combinatorics");
+
+        CategoryAdapter categoryAdapter = new CategoryAdapter(categories, category -> {
+            selectedCategory = category;
+            Log.d("HomeFragment", "Selected Category: " + selectedCategory);  // Log the selected category
+            filterPosts(currentSearchQuery);
+        });
+
+        binding.categoryRecyclerView.setLayoutManager(
+                new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
+        binding.categoryRecyclerView.setAdapter(categoryAdapter);
+    }
+
+    private void filterPosts(String query) {
+        List<Post> filteredList = new ArrayList<>();
+
+        for (Post post : allPosts) {
+            Log.d("HomeFragment", "Post Category: " + post.getCategory());
+
+            boolean matchesCategory = selectedCategory.equals("All") ||
+                    (post.getCategory() != null && post.getCategory().equalsIgnoreCase(selectedCategory));
+
+            boolean matchesQuery = query.isEmpty() ||
+                    (post.getTitle() != null && post.getTitle().toLowerCase().contains(query.toLowerCase())) ||
+                    (post.getDescription() != null && post.getDescription().toLowerCase().contains(query.toLowerCase()));
+
+            if (matchesCategory && matchesQuery) {
+                filteredList.add(post);
+            }
+        }
+
+        Log.d("HomeFragment", "Filtered List: " + filteredList.size() + " posts matching the filter.");
+
+        postList.clear();
+        postList.addAll(filteredList);
+        postAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -207,6 +258,7 @@ public class HomeFragment extends Fragment implements PostAdapter.OnPostOptionsC
         if (postId != null) {
             firestore.collection("posts").document(postId).delete()
                     .addOnSuccessListener(aVoid -> {
+                        allPosts.remove(post);
                         postList.remove(position);
                         postAdapter.notifyItemRemoved(position);
                     })

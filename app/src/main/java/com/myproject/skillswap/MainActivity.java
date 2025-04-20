@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.learn) {
                     replaceFragment(new LearnFragment());
                     return true;
-                } else if (item.getItemId() == R.id.profile) {
-                    replaceFragment(new ProfileFragment());
+                } else if (item.getItemId() == R.id.ai) {
+                    replaceFragment(new AiFragment());
                     return true;
                 } else if (item.getItemId() == R.id.fab) {
                     replaceFragment(new CreatePostFragment());
@@ -84,9 +84,6 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 } else if (item.getItemId() == R.id.aboutus) {
                     replaceFragment(new AboutUsFragment());
-                    return true;
-                } else if (item.getItemId() == R.id.users) {
-                    replaceFragment(new UsersFragment());
                     return true;
                 } else if (item.getItemId() == R.id.settings) {
                     replaceFragment(new SettingsFragment());

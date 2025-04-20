@@ -22,8 +22,8 @@
         android:title="Learn" />
 
     <item
-        android:id="@+id/profile"
-        android:icon="@drawable/person"
-        android:title="Profile" />
+        android:id="@+id/ai"
+        android:icon="@drawable/ai_logo"
+        android:title="Ai" />
 
 </menu>
