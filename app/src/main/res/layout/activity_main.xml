@@ -31,7 +31,7 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:background="@color/light_gray_blue"
                     app:title="SolveStack"
                     app:titleTextColor="@android:color/black"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"

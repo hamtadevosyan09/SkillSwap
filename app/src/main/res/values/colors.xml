@@ -56,4 +56,5 @@
     <color name="username_color">#3A3A3A</color>
     <color name="comment_text_color">#4A4A4A</color>
     <color name="action_text_color">#5D8CAE</color>
+    <color name="home_background">#F5F7FA</color>
     </resources>
