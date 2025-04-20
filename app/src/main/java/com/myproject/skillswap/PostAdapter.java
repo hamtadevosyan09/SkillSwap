@@ -115,9 +115,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
                             String username = documentSnapshot.getString("username");
-                            usernameTextView.setText(username != null ? username : "Unknown User");
+                            usernameTextView.setText(username != null ? username : " Username");
                         } else {
-                            usernameTextView.setText("Unknown User");
+                            usernameTextView.setText("Username");
                         }
                     })
                     .addOnFailureListener(e -> usernameTextView.setText("Error fetching username"));
