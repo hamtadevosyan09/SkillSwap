@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,121 +8,161 @@
     android:background="@color/light_gray_blue"
     tools:context=".DeleteAccountActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/warning_section"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/warning_card"
-        android:layout_marginBottom="24dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/warning_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
 
         <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="16dp"
+            android:id="@+id/warning_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="12dp"
             android:src="@drawable/warning_icon"
-            app:tint="@color/warning_yellow" />
+            app:tint="@color/warning_yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
+            android:id="@+id/warning_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
             android:text="Warning!"
             android:textColor="@color/warning_yellow"
-            android:textSize="36sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintStart_toEndOf="@id/warning_icon"
+            app:layout_constraintTop_toTopOf="@id/warning_icon"
+            app:layout_constraintBottom_toBottomOf="@id/warning_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/warning_card"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_marginHorizontal="24dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp">
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintTop_toBottomOf="@id/warning_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:padding="24dp">
 
             <ImageView
+                android:id="@+id/delete_icon"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="16dp"
-                android:src="@drawable/delete_account"/>
+                android:src="@drawable/delete_account"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="16dp"
                 android:text="Delete Account"
-                android:textAlignment="center"
                 android:textColor="@color/error_red"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/delete_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <!-- Divider -->
             <View
-                android:layout_width="match_parent"
+                android:id="@+id/divider"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_marginVertical="16dp"
-                android:background="#E0E0E0" />
+                android:layout_marginTop="16dp"
+                android:background="#DDDDDD"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Warning Message -->
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/warning_msg"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:lineSpacingExtra="4sp"
-                android:text="You are about to permanently delete your account. This action cannot be undone, and all your data will be lost."
+                android:layout_marginTop="16dp"
+                android:text="You are about to permanently delete your account. This action cannot be undone, and all your data will be lost"
                 android:textAlignment="center"
                 android:textColor="@color/text_primary"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/confirm_msg"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="16dp"
                 android:text="Are you sure you want to continue?"
-                android:textAlignment="center"
                 android:textColor="@color/text_primary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/warning_msg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/deleteAccount2"
-                android:layout_width="match_parent"
+                android:layout_width=""
                 android:layout_height="56dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="24dp"
                 android:backgroundTint="@color/red"
-                android:fontFamily="sans-serif-medium"
                 android:text="Yes, Delete My Account"
-                android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:cornerRadius="8dp"
-                app:iconGravity="textStart"
+                android:textAllCaps="false"
+                android:fontFamily="sans-serif-medium"
+                app:cornerRadius="12dp"
                 app:iconPadding="8dp"
-                app:iconTint="@color/white" />
+                app:iconTint="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/confirm_msg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/goback"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="56dp"
-                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="12dp"
                 android:text="Cancel"
-                android:textAllCaps="false"
                 android:textColor="@color/text_primary"
                 android:textSize="16sp"
-                app:cornerRadius="8dp"
+                android:textAllCaps="false"
+                android:fontFamily="sans-serif-medium"
+                app:cornerRadius="12dp"
                 app:strokeColor="@color/text_secondary"
-                app:strokeWidth="1dp" />
-        </LinearLayout>
+                app:strokeWidth="1dp"
+                app:layout_constraintTop_toBottomOf="@id/deleteAccount2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

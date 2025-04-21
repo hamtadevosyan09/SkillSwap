@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@color/light_gray_blue"
-            android:paddingBottom="56dp"> <!-- Adjust this value based on the height of your bottom menu -->
+            android:paddingBottom="70dp"> <!-- Adjust this value based on the height of your bottom menu -->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"

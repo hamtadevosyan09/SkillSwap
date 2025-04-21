@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,19 +8,17 @@
     android:background="@color/white"
     tools:context=".LoginActivity">
 
-    <RelativeLayout
-        android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </RelativeLayout>
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/card_view"
+        android:id="@+id/title_section"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="28dp">
+        android:padding="28dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/card_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,11 +31,13 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="-20dp"
-        app:cardCornerRadius="28dp">
+        app:cardCornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -111,42 +112,47 @@
                     android:id="@+id/login_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="textPassword"
                     android:hint="Enter your Password"
                     android:padding="12dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <RelativeLayout
+            <!-- ConstraintLayout for "Remember me" and "I forgot my password" -->
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:layout_width="wrap_content"
                     android:id="@+id/remember"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Remember me" />
+                    android:text="Remember me"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
                 <TextView
-                    android:layout_width="wrap_content"
                     android:id="@+id/forgetpassword"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
+                    android:text="I forgot my password"
                     android:textColor="@color/blue"
-                    android:layout_centerVertical="true"
-                    android:text="I forgot my password" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="16dp"/> <!-- added space between checkbox and text -->
 
-            </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="10dp" />
 
             <Button
-                android:layout_marginBottom="50dp"
-                android:layout_width="match_parent"
                 android:id="@+id/login_button"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_marginBottom="50dp"
                 android:backgroundTint="@color/blue"
                 android:text="Login"
                 app:cornerRadius="32dp" />
@@ -162,9 +168,7 @@
                 android:layout_gravity="center"
                 android:text="Don't have an account? Sign up!"
                 android:textColor="@color/blue" />
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

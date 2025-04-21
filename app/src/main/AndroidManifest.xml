@@ -9,9 +9,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/logo_bg1"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/logo_bg1"
+        android:icon="@mipmap/dice_logo"
+        android:label="SolveStack"
+        android:roundIcon="@mipmap/dice_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.SkillSwap"
         tools:targetApi="31">
@@ -47,7 +47,7 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:label="@string/app_name">
+            android:label="SolveStack">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -57,7 +57,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name" />
+            android:label="SolveStack" />
 
         <activity
             android:name=".PasswordResetActivity"
