@@ -47,7 +47,8 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:label="SolveStack">
+            android:label="SolveStack"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -78,7 +79,6 @@
             android:name=".EditPostActivity"
             android:exported="true" />
 
-        <!-- Firebase messaging and analytics -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@mipmap/ic_launcher" />
