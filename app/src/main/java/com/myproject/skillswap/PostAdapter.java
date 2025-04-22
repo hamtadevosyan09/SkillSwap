@@ -59,7 +59,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         private ImageView threeDots;
         private TextView replyText;
         private ImageView replyPic;
-        private TextView difficultyTextView;
         private TextView categoryTextView;
 
         public PostViewHolder(@NonNull View itemView) {
@@ -106,6 +105,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             getUsernameFromFirestore(post.getCreatorUserId(), usernameTextView);
 
             threeDots.setVisibility(View.VISIBLE);
+
+            // 🔽 New: Load comment count and show it
+            loadCommentCount(post.getPostId());
         }
 
         private void getUsernameFromFirestore(String creatorUserId, final TextView usernameTextView) {
@@ -115,7 +117,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
                             String username = documentSnapshot.getString("username");
-                            usernameTextView.setText(username != null ? username : " Username");
+                            usernameTextView.setText(username != null ? username : "Username");
                         } else {
                             usernameTextView.setText("Username");
                         }
@@ -143,6 +145,21 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                     break;
             }
             categoryTextView.setBackgroundResource(color);
+        }
+
+        private void loadCommentCount(String postId) {
+            FirebaseFirestore.getInstance()
+                    .collection("comments")
+                    .document(postId)
+                    .collection("post_comments")
+                    .get()
+                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                        int count = queryDocumentSnapshots.size();
+                        replyText.setText("Reply (" + count + ")");
+                    })
+                    .addOnFailureListener(e -> {
+                        replyText.setText("Reply");
+                    });
         }
     }
 
