@@ -8,14 +8,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Problems extends Fragment {
 
     private TextView problemOfTheWeekTextView, solutionOfTheWeekTextView;
     private FirebaseFirestore db;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,6 +26,9 @@ public class Problems extends Fragment {
 
         problemOfTheWeekTextView = view.findViewById(R.id.problemOfTheWeekTextView);
         solutionOfTheWeekTextView = view.findViewById(R.id.solutionOfTheWeekTextView);
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
+
+        swipeRefreshLayout.setOnRefreshListener(this::retrieveProblemAndSolution);
 
         return view;
     }
@@ -36,23 +40,22 @@ public class Problems extends Fragment {
     }
 
     private void retrieveProblemAndSolution() {
-        // Fetch the document "problem_of_the_week" which contains both the problem and the solution
+        swipeRefreshLayout.setRefreshing(true); // Start loading spinner
+
         db.collection("user_answers")
                 .document("problem_of_the_week")
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
-                        // Get the problem and solution from the document
                         String problemOfTheWeek = documentSnapshot.getString("problem");
                         String solutionOfTheWeek = documentSnapshot.getString("solution");
 
                         if (problemOfTheWeek != null && !problemOfTheWeek.isEmpty()) {
                             problemOfTheWeekTextView.setText(problemOfTheWeek);
                         } else {
-                            Toast.makeText(getContext(), "No problem of the day found", Toast.LENGTH_SHORT).show();
+                            problemOfTheWeekTextView.setText("No problem of the day found");
                         }
 
-                        // Check if a solution is available
                         if (solutionOfTheWeek != null && !solutionOfTheWeek.isEmpty()) {
                             solutionOfTheWeekTextView.setText(solutionOfTheWeek);
                         } else {
@@ -61,9 +64,11 @@ public class Problems extends Fragment {
                     } else {
                         Toast.makeText(getContext(), "Problem of the day not found", Toast.LENGTH_SHORT).show();
                     }
+                    swipeRefreshLayout.setRefreshing(false); // Stop spinner
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(getContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    swipeRefreshLayout.setRefreshing(false); // Stop spinner
                 });
     }
 }
