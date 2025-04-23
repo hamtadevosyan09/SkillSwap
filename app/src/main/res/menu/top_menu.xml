@@ -9,6 +9,11 @@
         android:title="Home"/>
 
     <item
+        android:id="@+id/questions"
+        android:icon="@drawable/person"
+        android:title="My questions"/>
+
+    <item
         android:id="@+id/settings"
         android:icon="@drawable/settings_image"
         android:title="Settings"/>
