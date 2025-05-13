@@ -23,6 +23,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:padding="28dp">
 
             <ImageView
@@ -41,7 +42,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="Change Username"
                 android:textAlignment="center"
-                android:textColor="@color/text_primary"
+                android:textColor="@color/black"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/icon"
@@ -67,7 +68,7 @@
                 android:fontFamily="sans-serif"
                 android:text="Please enter your new username below"
                 android:textAlignment="center"
-                android:textColor="@color/text_secondary"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintTop_toBottomOf="@id/underline"
                 app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +79,7 @@
                 android:id="@+id/inputLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 app:boxBackgroundMode="outline"
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
@@ -99,8 +101,8 @@
                     android:hint="New Username"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:textColor="@color/text_primary"
-                    android:textColorHint="@color/text_hint" />
+                    android:textColor="@color/black"
+                    android:textColorHint="#99000000" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton

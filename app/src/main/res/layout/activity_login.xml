@@ -57,6 +57,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Please login with your information" />
 
             <View
@@ -68,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:text="Email Address"
                 android:textSize="15sp"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -85,7 +87,9 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:hint="Enter your email"
-                    android:padding="12dp" />
+                    android:padding="12dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#99000000"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <View
@@ -96,6 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Password"
+                android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -114,6 +119,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:hint="Enter your Password"
+                    android:textColor="@color/black"
+                    android:textColorHint="#99000000"
                     android:padding="12dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,6 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Remember me"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent" />
@@ -154,6 +162,7 @@
                 android:layout_marginBottom="50dp"
                 android:backgroundTint="@color/blue"
                 android:text="Login"
+                android:textColor="@color/white"
                 app:cornerRadius="32dp" />
 
             <View

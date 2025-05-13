@@ -60,6 +60,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:padding="24dp">
 
             <ImageView
@@ -116,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Are you sure you want to continue?"
-                android:textColor="@color/text_primary"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-medium"
@@ -149,8 +150,9 @@
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="12dp"
+                android:backgroundTint="@color/white"
                 android:text="Cancel"
-                android:textColor="@color/text_primary"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textAllCaps="false"
                 android:fontFamily="sans-serif-medium"
