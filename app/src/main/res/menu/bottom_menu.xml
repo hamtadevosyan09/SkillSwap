@@ -9,7 +9,7 @@
     <item
         android:id="@+id/problems"
         android:icon="@drawable/problems"
-        android:title="Problem" />
+        android:title="Problems" />
 
     <item
         android:id="@+id/fab"
