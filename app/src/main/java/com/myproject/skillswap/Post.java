@@ -7,16 +7,18 @@ public class Post {
     private String userId;
     private String creatorUserId;
     private String category;
+    private String username;
 
     public Post() {
     }
 
-    public Post(String title, String description, String userId, String creatorUserId, String category) {
+    public Post(String title, String description, String userId, String creatorUserId, String category, String username) {
         this.title = title;
         this.description = description;
         this.userId = userId;
         this.creatorUserId = creatorUserId;
         this.category = category;
+        this.username = username;
     }
 
     public String getPostId() {
@@ -65,5 +67,13 @@ public class Post {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -18,13 +18,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CreatePostFragment extends Fragment {
     private EditText editTextTitle, editTextDescription;
-    private Button buttonPost,  buttonCategoryTech, buttonCategoryBusiness;
+    private Button buttonPost, buttonCategoryTech, buttonCategoryBusiness;
     private FirebaseFirestore firestore;
     private FirebaseAuth firebaseAuth;
     private boolean isPosting = false;
     private String selectedCategory = "";
 
-    private Button buttonCategoryGeo, buttonCategoryComb , buttonCategoryAlg, buttonCategoryNum;
+    private Button buttonCategoryGeo, buttonCategoryComb, buttonCategoryAlg, buttonCategoryNum;
 
     @Nullable
     @Override
@@ -33,9 +33,9 @@ public class CreatePostFragment extends Fragment {
         editTextTitle = view.findViewById(R.id.editTextTitle);
         editTextDescription = view.findViewById(R.id.editTextDescription);
         buttonPost = view.findViewById(R.id.button_post);
-        buttonCategoryGeo= view.findViewById(R.id.geometry);
+        buttonCategoryGeo = view.findViewById(R.id.geometry);
         buttonCategoryAlg = view.findViewById(R.id.algebra);
-        buttonCategoryNum= view.findViewById(R.id.number);
+        buttonCategoryNum = view.findViewById(R.id.number);
         buttonCategoryComb = view.findViewById(R.id.combinatorics);
 
         firestore = FirebaseFirestore.getInstance();
@@ -72,6 +72,7 @@ public class CreatePostFragment extends Fragment {
                 selectedCategory = "Number_Theory";
             }
         });
+
         buttonCategoryComb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,21 +87,27 @@ public class CreatePostFragment extends Fragment {
         String title = editTextTitle.getText().toString().trim();
         String description = editTextDescription.getText().toString().trim();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+
         if (currentUser == null) {
             isPosting = false;
             return;
         }
+
         String userId = currentUser.getUid();
+        String username = currentUser.getDisplayName();
+
         if (title.isEmpty() || title.length() < 2) {
             editTextTitle.setError("Title must be at least 2 characters long");
             isPosting = false;
             return;
         }
+
         if (description.isEmpty() || description.length() < 5) {
             editTextDescription.setError("Description must be at least 5 characters long");
             isPosting = false;
             return;
         }
+
         if (selectedCategory.isEmpty()) {
             Toast.makeText(getContext(), "Please select a category", Toast.LENGTH_SHORT).show();
             isPosting = false;
@@ -109,8 +116,10 @@ public class CreatePostFragment extends Fragment {
 
         String creatorUserId = currentUser.getUid();
         String postId = firestore.collection("posts").document().getId();
-        Post post = new Post(title, description, userId, creatorUserId, selectedCategory);
+
+        Post post = new Post(title, description, userId, creatorUserId, selectedCategory, username);
         post.setPostId(postId);
+
         firestore.collection("posts").document(postId).set(post)
                 .addOnSuccessListener(documentReference -> {
                     editTextTitle.setText("");

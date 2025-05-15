@@ -102,27 +102,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             categoryTextView.setText(post.getCategory());
             setCategoryColor(post.getCategory());
 
-            getUsernameFromFirestore(post.getCreatorUserId(), usernameTextView);
+            // ✅ Show username from Post object
+            usernameTextView.setText(post.getUsername() != null ? post.getUsername() : "Username");
 
             threeDots.setVisibility(View.VISIBLE);
-
-            // 🔽 New: Load comment count and show it
             loadCommentCount(post.getPostId());
-        }
-
-        private void getUsernameFromFirestore(String creatorUserId, final TextView usernameTextView) {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.collection("users").document(creatorUserId)
-                    .get()
-                    .addOnSuccessListener(documentSnapshot -> {
-                        if (documentSnapshot.exists()) {
-                            String username = documentSnapshot.getString("username");
-                            usernameTextView.setText(username != null ? username : "Username");
-                        } else {
-                            usernameTextView.setText("Username");
-                        }
-                    })
-                    .addOnFailureListener(e -> usernameTextView.setText("Error fetching username"));
         }
 
         private void setCategoryColor(String category) {
