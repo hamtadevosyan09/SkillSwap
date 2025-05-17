@@ -6,14 +6,6 @@
     android:layout_height="200dp"
     android:gravity="bottom"
     android:padding="16dp"
-    android:background="@drawable/logo_bg"
+    android:background="@drawable/nav_headermath"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="hamtadevosyan09"
-            android:textColor="@color/black"
-            android:layout_marginTop="150dp"
-            android:textStyle="bold" />
 </LinearLayout>

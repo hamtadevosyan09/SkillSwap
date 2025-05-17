@@ -252,21 +252,28 @@ public class HomeFragment extends Fragment implements PostAdapter.OnPostOptionsC
     }
 
     private void deletePost(Post post) {
-        String postId = post.getPostId();
-        int position = postList.indexOf(post);
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Delete Post")
+                .setMessage("Are you sure you want to delete this post?")
+                .setPositiveButton("Delete", (dialog, which) -> {
+                    String postId = post.getPostId();
+                    int position = postList.indexOf(post);
 
-        if (postId != null) {
-            firestore.collection("posts").document(postId).delete()
-                    .addOnSuccessListener(aVoid -> {
-                        allPosts.remove(post);
-                        postList.remove(position);
-                        postAdapter.notifyItemRemoved(position);
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(requireContext(), "Failed to delete post: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    });
-        } else {
-            Toast.makeText(requireContext(), "Post ID is null, unable to delete post", Toast.LENGTH_SHORT).show();
-        }
+                    if (postId != null) {
+                        firestore.collection("posts").document(postId).delete()
+                                .addOnSuccessListener(aVoid -> {
+                                    allPosts.remove(post);
+                                    postList.remove(position);
+                                    postAdapter.notifyItemRemoved(position);
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(requireContext(), "Failed to delete post: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                });
+                    } else {
+                        Toast.makeText(requireContext(), "Post ID is null, unable to delete post", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
     }
 }
