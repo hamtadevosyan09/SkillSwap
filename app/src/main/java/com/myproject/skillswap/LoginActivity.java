@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         loginEmail = findViewById(R.id.login_email);
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
+        testUserButton = findViewById(R.id.test_user_button);
         signupRedirectText = findViewById(R.id.signupRedirect);
         remember = findViewById(R.id.remember);
         forgotPasswordText = findViewById(R.id.forgetpassword);
@@ -113,7 +114,25 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // Test user button click listener (silent auto-login)
+        testUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String testEmail = "grishoavagyat@gmail.com"; // Replace with actual test email
+                String testPassword = "TestPassword123"; // Replace with actual test password
 
+                auth.signInWithEmailAndPassword(testEmail, testPassword)
+                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                if (auth.getCurrentUser().isEmailVerified()) {
+                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                    finish();
+                                }
+                            }
+                        });
+            }
+        });
 
         forgotPasswordText.setOnClickListener(new View.OnClickListener() {
             @Override

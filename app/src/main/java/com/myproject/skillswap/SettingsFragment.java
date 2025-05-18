@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import androidx.appcompat.app.AlertDialog;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -64,13 +65,21 @@ public class SettingsFragment extends Fragment {
         logOutTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPref = getActivity().getSharedPreferences("loginPrefs", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putBoolean("rememberMe", false).apply();
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-                requireActivity().finish();
+                new AlertDialog.Builder(requireContext())
+                        .setTitle("Log Out")
+                        .setMessage("Are you sure you want to log out?")
+                        .setPositiveButton("Log Out", (dialog, which) -> {
+                            SharedPreferences sharedPref = getActivity().getSharedPreferences("loginPrefs", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putBoolean("rememberMe", false).apply();
+                            startActivity(new Intent(getActivity(), LoginActivity.class));
+                            requireActivity().finish();
+                        })
+                        .setNegativeButton("Cancel", null)
+                        .show();
             }
         });
+
 
         deleteAccountTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,4 +91,3 @@ public class SettingsFragment extends Fragment {
         return view;
     }
 }
-
