@@ -186,7 +186,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Don't have an account? Sign up!"
-                android:textColor="@color/blue" />
+                android:textColor="@color/blue"
+                android:layout_marginBottom="10dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
