@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/light_gray_blue"
     tools:context=".LoginActivity">
 
     <LinearLayout
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="28dp"
-            android:background="@color/light_gray_blue">
+            android:background="@color/white">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -155,13 +155,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="10dp" />
 
-            <!-- Test User Button -->
             <Button
                 android:id="@+id/test_user_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/grey"
                 android:text="Login as Test User"
                 android:textColor="@color/white"
                 app:cornerRadius="32dp" />
@@ -171,7 +170,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="50dp"
-                android:backgroundTint="@color/blue"
+                android:backgroundTint="@color/famous_blue"
                 android:text="Login"
                 android:textColor="@color/white"
                 app:cornerRadius="32dp" />

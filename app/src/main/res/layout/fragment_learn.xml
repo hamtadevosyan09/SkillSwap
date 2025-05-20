@@ -1,116 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_gray_blue"
     android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center"
-        android:paddingTop="70dp">
+        android:paddingTop="70dp"
+        android:paddingBottom="80dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:gravity="center"
-            android:text="Math resources for our users"
-            android:textColor="@color/black"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="50dp"
-            android:fontFamily="sans-serif-medium" />
+            android:padding="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_max="600dp">
 
-        <TextView
-            android:id="@+id/geometrySection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Geometry"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            android:padding="16dp"
-            android:layout_marginBottom="18dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="@drawable/rounded_button_geometry"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="25dp"
-            android:elevation="4dp"
-            android:shadowColor="@android:color/darker_gray" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Math resources for our users"
+                android:textColor="@color/black"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="sans-serif-medium" />
 
-        <TextView
-            android:id="@+id/numberTheorySection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Number Theory"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            android:padding="16dp"
-            android:layout_marginBottom="18dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="@drawable/rounded_button_numbertheory"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:elevation="4dp"
-            android:shadowColor="@android:color/darker_gray" />
+            <TextView
+                android:id="@+id/geometrySection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Geometry"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:padding="16dp"
+                android:layout_marginBottom="18dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/rounded_button_geometry"
+                android:elevation="4dp"
+                android:shadowColor="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/algebraSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Algebra"
-            android:textSize="22sp"
-            android:textColor="@color/black"
-            android:padding="16dp"
-            android:layout_marginBottom="18dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="@drawable/rounded_button_algebra"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:elevation="4dp"
-            android:shadowColor="@android:color/darker_gray" />
+            <TextView
+                android:id="@+id/numberTheorySection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Number Theory"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:padding="16dp"
+                android:layout_marginBottom="18dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/rounded_button_numbertheory"
+                android:elevation="4dp"
+                android:shadowColor="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/combinatoricsSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Combinatorics"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            android:padding="16dp"
-            android:layout_marginBottom="18dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="@drawable/rounded_button_combinatorics"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:elevation="4dp"
-            android:shadowColor="@android:color/darker_gray" />
+            <TextView
+                android:id="@+id/algebraSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Algebra"
+                android:textSize="22sp"
+                android:textColor="@color/black"
+                android:padding="16dp"
+                android:layout_marginBottom="18dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/rounded_button_algebra"
+                android:elevation="4dp"
+                android:shadowColor="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/websitesSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Math websites"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            android:padding="16dp"
-            android:layout_marginBottom="80dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="@drawable/rounded_button_websites"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:elevation="4dp"
-            android:shadowColor="@android:color/darker_gray" />
+            <TextView
+                android:id="@+id/combinatoricsSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Combinatorics"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:padding="16dp"
+                android:layout_marginBottom="18dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/rounded_button_combinatorics"
+                android:elevation="4dp"
+                android:shadowColor="@android:color/darker_gray" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/websitesSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Math websites"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:padding="16dp"
+                android:layout_marginBottom="18dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/rounded_button_websites"
+                android:elevation="4dp"
+                android:shadowColor="@android:color/darker_gray" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

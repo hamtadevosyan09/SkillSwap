@@ -57,4 +57,17 @@
     <color name="comment_text_color">#4A4A4A</color>
     <color name="action_text_color">#5D8CAE</color>
     <color name="home_background">#F5F7FA</color>
+    <color name="teal_200_light">#A0CBCB</color>
+    <color name="red_light">#F28B82</color>
+    <color name="green_light">#A5D6A7</color>
+    <color name="orange_light">#FFD180</color>
+    <color name="primary_color">#4A6572</color>
+    <color name="primary_color_dark">#344955</color>
+    <color name="primary_color_light">#718792</color>
+    <color name="background_color">#F5F7FA</color>
+    <color name="extra_recycler_background">#F0F2F5</color>
+    <color name="message_sent_background">#E3F2FD</color>
+    <color name="message_received_background">#FFFFFF</color>
+    <color name="icon_tint">#78909C</color>
+    <color name="divider_color">#E0E0E0</color>
     </resources>
