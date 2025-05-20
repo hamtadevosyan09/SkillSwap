@@ -18,12 +18,16 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField ("String", "API_KEY", "\"AIzaSyCJ7qHLftZ9LWrS6P6fetR_rfBbaahaH6Q\"")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField ("String", "API_KEY", "\"AIzaSyCJ7qHLftZ9LWrS6P6fetR_rfBbaahaH6Q\"")
         }
     }
 
@@ -34,6 +38,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 

@@ -12,11 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.myproject.skillswap.databinding.FragmentAiBinding;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
-import java.io.IOException;
-import java.io.InputStream;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,18 +33,12 @@ public class AiFragment extends Fragment {
     }
 
     private void loadApiKey() {
-        try {
-            Properties properties = new Properties();
-            InputStream inputStream = getContext().getAssets().open("local.properties");
-            properties.load(inputStream);
-            apiKey = properties.getProperty("GEMINI_API_KEY");
-            if (apiKey == null || apiKey.isEmpty()) {
-                Log.e("AI", "API key is null or empty");
-                apiKey = "";
-            }
-        } catch (IOException e) {
-            Log.e("AI", "Failed to load API key: " + e.getMessage());
+        apiKey = BuildConfig.API_KEY;
+        if (apiKey == null || apiKey.isEmpty()) {
+            Log.e("AI", "API key is null or empty");
             apiKey = "";
+        } else {
+            Log.d("AI", "API key loaded successfully");
         }
     }
 
@@ -70,7 +62,6 @@ public class AiFragment extends Fragment {
         chatAdapter = new ChatAdapter(chatMessages);
         binding.chatRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.chatRecyclerView.setAdapter(chatAdapter);
-        // Scroll to the latest message if the list is not empty
         if (!chatMessages.isEmpty()) {
             binding.chatRecyclerView.scrollToPosition(chatMessages.size() - 1);
         }
@@ -91,13 +82,10 @@ public class AiFragment extends Fragment {
     }
 
     private void sendMessage(String message) {
-        // Add user message to chat
         chatMessages.add(new ChatMessage(message, true));
         chatAdapter.notifyItemInserted(chatMessages.size() - 1);
         binding.chatRecyclerView.scrollToPosition(chatMessages.size() - 1);
 
-        // Send message to Gemini API
-        AiRequest request = new AiRequest(message);
         if (apiKey.isEmpty()) {
             Log.e("AI", "API key is empty, cannot make API call");
             chatMessages.add(new ChatMessage("Error: API key is missing", false));
@@ -105,11 +93,28 @@ public class AiFragment extends Fragment {
             binding.chatRecyclerView.scrollToPosition(chatMessages.size() - 1);
             return;
         }
+
+        AiRequest request = new AiRequest(message);
         ApiClient.getAiService().getAIResponse(apiKey, request).enqueue(new Callback<AIResponse>() {
             @Override
             public void onResponse(Call<AIResponse> call, Response<AIResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    chatMessages.add(new ChatMessage(response.body().getResponse(), false));
+                    String responseText = response.body().getResponse();
+                    String cleanedText = responseText
+                            .replaceAll("```[\\s\\S]*?```", "")
+                            .replaceAll("`[^`]*`", "")
+                            .replaceAll("\\[([^\\]]+)\\]\\([^\\)]+\\)", "$1")
+                            .replaceAll("https?://\\S+", "")
+                            .replaceAll("www\\.[^\\s]+", "")
+                            .replaceAll("\\b(?:[a-zA-Z0-9\\-]+\\.)+[a-zA-Z]{2,}(?:/[^\\s]*)?", "")
+                            .replaceAll("\\*\\*(.*?)\\*\\*", "$1")
+                            .replaceAll("_([^_]+)_", "$1")
+                            .replaceAll("&lt;", "<")
+                            .replaceAll("&gt;", ">")
+                            .replaceAll("&amp;", "&")
+                            .trim();
+
+                    chatMessages.add(new ChatMessage(cleanedText, false));
                     chatAdapter.notifyItemInserted(chatMessages.size() - 1);
                     binding.chatRecyclerView.scrollToPosition(chatMessages.size() - 1);
                 } else {
@@ -119,7 +124,7 @@ public class AiFragment extends Fragment {
                         if (response.errorBody() != null) {
                             errorMessage = "Error: " + response.errorBody().string();
                         }
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         Log.e("AI", "Error parsing error body: " + e.getMessage());
                     }
                     chatMessages.add(new ChatMessage(errorMessage, false));
