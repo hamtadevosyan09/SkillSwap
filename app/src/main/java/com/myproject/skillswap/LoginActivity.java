@@ -114,12 +114,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Test user button click listener (silent auto-login)
         testUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String testEmail = "grishoavagyat@gmail.com"; // Replace with actual test email
-                String testPassword = "TestPassword123"; // Replace with actual test password
+                String testEmail = "individualproject2025@gmail.com";
+                String testPassword = "Samsung2025";
 
                 auth.signInWithEmailAndPassword(testEmail, testPassword)
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
